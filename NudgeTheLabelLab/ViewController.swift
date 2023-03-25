@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var stackView: UIStackView
+    let blueView = BlueView()
 
     init() {
         stackView = Factory.makeStackView(withOrientation: .vertical)
@@ -40,7 +41,6 @@ extension ViewController {
     
     func setupViews() {
         let redView = RedView()
-        let blueView = BlueView()
         
         stackView.addArrangedSubview(redView)
         stackView.addArrangedSubview(blueView)
@@ -64,5 +64,7 @@ extension ViewController {
         } else {
             stackView.axis = .vertical
         }
+        
+        blueView.adjustConstraints()
     }
 }
